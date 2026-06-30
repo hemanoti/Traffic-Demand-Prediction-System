@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Traffic Prediction System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-car"></i>
+
+            <span>Traffic Prediction System</span>
+
+        </div>
+
+        <ul>
+
+            <li><a href="/">Home</a></li>
+
+            <li><a href="/predict_page">Predict Traffic</a></li>
+
+            <li><a href="#">About</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="overlay">
+
+            <div class="hero-content">
+
+                <h1>
+                    AI-Powered
+                    <span>Traffic Prediction</span>
+                    for Smarter Tomorrow
+                </h1>
+
+                <p>
+
+                    Predict traffic demand, reduce congestion and improve road efficiency using Machine Learning.
+
+                </p>
+
+                <a href="/predict_page">
+
+                    <button>
+
+                        Go to Prediction
+
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="stats">
+
+    <div class="stat-card green">
+        <div class="icon">🚗</div>
+        <div>
+            <h4>Dataset Size</h4>
+            <h2>{{ dataset_size }}</h2>
+            <p>Total vehicles monitored</p>
+        </div>
+    </div>
+
+    <div class="stat-card blue">
+        <div class="icon">🎯</div>
+        <div>
+            <h4>Model Accuracy (R²)</h4>
+            <h2>{{ accuracy }}</h2>
+            <p>LightGBM Performance</p>
+        </div>
+    </div>
+
+    <div class="stat-card orange">
+        <div class="icon">📊</div>
+        <div>
+            <h4>Prediction Model</h4>
+            <h2>{{ model_name }}</h2>
+            <p>Predicted vehicles/hour</p>
+        </div>
+    </div>
+
+    <div class="stat-card purple">
+        <div class="icon">🛣️</div>
+        <div>
+            <h4>Features Used</h4>
+            <h2>{{ features_count }}</h2>
+            <p>Across the city</p>
+        </div>
+    </div>
+
+</section>
+<!-- Traffic Overview -->
+
+<section class="overview">
+
+    <h2>Traffic Overview</h2>
+
+    <div class="line"></div>
+
+    <div class="charts">
+
+        <div class="chart-card">
+
+            <h3>Traffic Demand Over Time</h3>
+
+            <canvas id="trafficChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h3>Vehicle Type Distribution</h3>
+
+            <canvas id="vehicleChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h3>Congestion Level (Weekly)</h3>
+
+            <canvas id="congestionChart"></canvas>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Traffic Information Section -->
+
+<section class="info-section">
+
+    <!-- Left Card -->
+
+    <div class="info-card">
+
+        <img src="{{ url_for('static', filename='images/traffic_live.jpg') }}" alt="Traffic">
+
+        <h2>Traffic Snapshot</h2>
+
+        <p>
+            Monitor traffic flow across different road types, weather
+            conditions and peak hours. The prediction model helps estimate
+            future traffic demand with high accuracy.
+        </p>
+
+    </div>
+
+    <!-- Right Card -->
+
+    <div class="info-card">
+
+    <h2>Traffic Insights</h2>
+
+    <div class="insight-box">
+
+        <div class="icon green">🕒</div>
+
+        <div>
+            <h4>Peak Traffic Hours</h4>
+            <p>7 AM – 10 AM & 5 PM – 8 PM</p>
+        </div>
+
+    </div>
+
+    <div class="insight-box">
+
+        <div class="icon orange">⚠️</div>
+
+        <div>
+            <h4>High Congestion Alert</h4>
+            <p>Expect delays on major roads.</p>
+        </div>
+
+    </div>
+
+    <div class="insight-box">
+
+        <div class="icon blue">🚗</div>
+
+        <div>
+            <h4>Best Time to Travel</h4>
+            <p>10 AM – 4 PM for smoother traffic.</p>
+        </div>
+
+    </div>
+
+    <div class="insight-box">
+
+        <div class="icon purple">🤖</div>
+
+        <div>
+            <h4>AI Recommendation</h4>
+            <p>Plan travel during non-peak hours.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='charts.js') }}"></script>
+
+</body>
+
+</html>
