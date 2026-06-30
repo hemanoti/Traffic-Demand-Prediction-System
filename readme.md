@@ -113,6 +113,34 @@ The dashboard includes:
 - Actual vs Predicted Graph
 
 ---
+## ▶️ How to Run the Project
+
+1. Clone the repository
+
+```
+git clone https://github.com/hemanoti/Traffic-Demand-Prediction-System.git
+```
+
+2. Install the required packages
+
+```
+pip install -r requirements.txt
+```
+
+3. Run the Flask application
+
+```
+python app.py
+```
+
+4. Open the browser and visit
+
+```
+http://127.0.0.1:5000/
+```
+
+---
+
 
 ## 🎥 Project Demonstration
 
